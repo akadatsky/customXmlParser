@@ -44,7 +44,7 @@ public class XmlParser {
             if (attribute == null) {
                 continue;
             }
-            String value = parser.getAttributeValue(null, attribute.name());
+            String value = parser.getAttributeValue(null, attribute.value());
             field.setAccessible(true);
             field.set(tagInstance, value);
         }
@@ -110,7 +110,7 @@ public class XmlParser {
     private static <T> Field getFieldForTag(T parent, String tagName) {
         for (Field field : parent.getClass().getDeclaredFields()) {
             Tag tagAnnotation = getAnnotation(field, Tag.class);
-            if (tagAnnotation != null && tagAnnotation.name().equalsIgnoreCase(tagName)) {
+            if (tagAnnotation != null && tagAnnotation.value().equalsIgnoreCase(tagName)) {
                 return field;
             }
         }
@@ -128,8 +128,11 @@ public class XmlParser {
     }
 
     private static void skipTag(XmlPullParser parser, String name, int depth) throws XmlPullParserException, IOException {
-        while (parser.getEventType() != XmlPullParser.END_TAG && !parser.getName().equalsIgnoreCase(name) && parser.getDepth() != depth) {
+        while (true) {
             parser.next();
+            if (parser.getEventType() == XmlPullParser.END_TAG && parser.getName().equalsIgnoreCase(name) && parser.getDepth() == depth) {
+                break;
+            }
         }
         parser.next();
     }

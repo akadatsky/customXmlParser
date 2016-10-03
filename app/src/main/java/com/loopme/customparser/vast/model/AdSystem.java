@@ -5,7 +5,7 @@ import com.loopme.customparser.xml.Text;
 
 public class AdSystem {
 
-    @Attribute(name = "version")
+    @Attribute("version")
     private String version;
 
     @Text
