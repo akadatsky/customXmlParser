@@ -19,6 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnGoClick(View view) {
         Vast vast = XmlParser.parse(DataSource.getVast(), Vast.class);
-        Toast.makeText(this, "Versoin: " + vast.getVersion(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Version: " + vast.getVersion(), Toast.LENGTH_SHORT).show();
     }
 }
