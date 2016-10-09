@@ -1,5 +1,7 @@
 package com.loopme.customparser.xml;
 
+import android.text.TextUtils;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -36,7 +38,11 @@ public class XmlParser {
             if (attribute == null) {
                 continue;
             }
-            String value = parser.getAttributeValue(null, attribute.value());
+            String attributeValue = attribute.value();
+            if (TextUtils.isEmpty(attributeValue)) {
+                attributeValue = field.getName();
+            }
+            String value = parser.getAttributeValue(null, attributeValue);
             if (value == null) {
                 continue;
             }
@@ -114,8 +120,14 @@ public class XmlParser {
     private static <T> Field getFieldForTag(T parent, String tagName) {
         for (Field field : parent.getClass().getDeclaredFields()) {
             Tag tagAnnotation = getAnnotation(field, Tag.class);
-            if (tagAnnotation != null && tagAnnotation.value().equalsIgnoreCase(tagName)) {
-                return field;
+            if (tagAnnotation != null) {
+                String tagValue = tagAnnotation.value();
+                if (TextUtils.isEmpty(tagValue)) {
+                    tagValue = field.getName();
+                }
+                if (tagValue.equalsIgnoreCase(tagName)) {
+                    return field;
+                }
             }
         }
         return null;
