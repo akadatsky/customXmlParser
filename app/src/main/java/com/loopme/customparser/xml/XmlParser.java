@@ -62,8 +62,26 @@ public class XmlParser {
                 continue;
             }
             String value = parser.getAttributeValue(null, attribute.value());
+            if (value == null) {
+                continue;
+            }
             field.setAccessible(true);
-            field.set(tagInstance, value);
+            Class fieldClass = field.getType();
+            if (fieldClass.equals(String.class)) {
+                field.set(tagInstance, value);
+            } else if(Long.class.equals(fieldClass) || long.class.equals(fieldClass)) {
+                field.setLong(tagInstance, Long.parseLong(value));
+            } else if(Integer.class.equals(fieldClass) || int.class.equals(fieldClass)) {
+                field.setInt(tagInstance, Integer.parseInt(value));
+            } else if(Byte.class.equals(fieldClass) || byte.class.equals(fieldClass)) {
+                field.setByte(tagInstance, Byte.parseByte(value));
+            } else if(Double.class.equals(fieldClass) || double.class.equals(fieldClass)) {
+                field.setDouble(tagInstance, Double.parseDouble(value));
+            } else if(Float.class.equals(fieldClass) || float.class.equals(fieldClass)) {
+                field.setFloat(tagInstance, Float.parseFloat(value));
+            } else if(Boolean.class.equals(fieldClass) || boolean.class.equals(fieldClass)) {
+                field.setBoolean(tagInstance, Boolean.parseBoolean(value));
+            }
         }
     }
 
