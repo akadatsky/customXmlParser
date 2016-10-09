@@ -38,4 +38,43 @@ public class MediaFile {
     @Text
     private String text;
 
+    public String getId() {
+        return id;
+    }
+
+    public String getDelivery() {
+        return delivery;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getBitrate() {
+        return bitrate;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public boolean isScalable() {
+        return scalable;
+    }
+
+    public boolean isMaintainAspectRatio() {
+        return maintainAspectRatio;
+    }
+
+    public String getApiFramework() {
+        return apiFramework;
+    }
+
+    public String getText() {
+        return text;
+    }
 }
