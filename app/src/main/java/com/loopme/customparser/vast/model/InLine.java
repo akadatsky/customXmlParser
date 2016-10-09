@@ -6,16 +6,16 @@ import java.util.List;
 
 public class InLine {
 
-    @Tag("AdSystem")
+    @Tag
     private AdSystem adSystem;
 
-    @Tag("Error")
+    @Tag
     private Error error;
 
     @Tag("Impression")
-    private List<Impression> impression;
+    private List<Impression> impressions;
 
-    @Tag("Creatives")
+    @Tag
     private Creatives creatives;
 
     public AdSystem getAdSystem() {
@@ -30,7 +30,7 @@ public class InLine {
         return creatives;
     }
 
-    public List<Impression> getImpression() {
-        return impression;
+    public List<Impression> getImpressions() {
+        return impressions;
     }
 }

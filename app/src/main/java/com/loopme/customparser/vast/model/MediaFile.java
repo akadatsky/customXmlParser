@@ -5,34 +5,34 @@ import com.loopme.customparser.xml.Text;
 
 public class MediaFile {
 
-    @Attribute("id")
+    @Attribute
     private String id;
 
     /**
      * streaming, progressive
      */
-    @Attribute("delivery")
+    @Attribute
     private String delivery;
 
-    @Attribute("type")
+    @Attribute
     private String type;
 
-    @Attribute("bitrate")
+    @Attribute
     private int bitrate;
 
-    @Attribute("width")
+    @Attribute
     private int width;
 
-    @Attribute("height")
+    @Attribute
     private int height;
 
-    @Attribute("scalable")
+    @Attribute
     private boolean scalable;
 
-    @Attribute("maintainAspectRatio")
+    @Attribute
     private boolean maintainAspectRatio;
 
-    @Attribute("apiFramework")
+    @Attribute
     private String apiFramework;
 
     @Text

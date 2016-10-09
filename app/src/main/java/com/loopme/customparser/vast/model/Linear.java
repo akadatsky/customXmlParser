@@ -4,16 +4,16 @@ import com.loopme.customparser.xml.Tag;
 
 public class Linear {
 
-    @Tag("Duration")
+    @Tag
     private Duration duration;
 
-    @Tag("TrackingEvents")
+    @Tag
     private TrackingEvents trackingEvents;
 
-    @Tag("VideoClicks")
+    @Tag
     private VideoClicks videoClicks;
 
-    @Tag("MediaFiles")
+    @Tag
     private MediaFiles mediaFiles;
 
     public Duration getDuration() {

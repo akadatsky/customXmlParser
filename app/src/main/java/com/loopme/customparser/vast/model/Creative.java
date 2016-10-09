@@ -5,16 +5,16 @@ import com.loopme.customparser.xml.Tag;
 
 public class Creative {
 
-    @Attribute("id")
+    @Attribute
     private String id;
 
-    @Attribute("sequence")
+    @Attribute
     private String sequence;
 
-    @Tag("Linear")
+    @Tag
     private Linear linear;
 
-    @Tag("CompanionAds")
+    @Tag
     private CompanionAds companionAds;
 
     public String getId() {

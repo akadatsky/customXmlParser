@@ -5,10 +5,10 @@ import com.loopme.customparser.xml.Tag;
 
 public class Vast {
 
-    @Attribute("version")
+    @Attribute
     private String version;
 
-    @Tag("ad")
+    @Tag
     private Ad ad;
 
     public String getVersion() {

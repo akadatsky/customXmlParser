@@ -5,10 +5,10 @@ import com.loopme.customparser.xml.Tag;
 
 public class Ad {
 
-    @Attribute("id")
+    @Attribute
     private String id;
 
-    @Tag("InLine")
+    @Tag
     private InLine inLine;
 
     public String getId() {
