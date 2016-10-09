@@ -159,7 +159,7 @@ public class DataSource {
                     "</ClickTracking>\n" +
                     "</VideoClicks>\n" +
                     "<MediaFiles>\n" +
-                    "<MediaFile id=\"1\" delivery=\"progressive\" type=\"video/mp4\" bitrate=\"600\" width=\"140\" height=\"60\">\n" +
+                    "<MediaFile scalable=\"false\" id=\"1\" delivery=\"progressive\" type=\"video/mp4\" bitrate=\"600\" width=\"140\" height=\"60\">\n" +
                     "<![CDATA[\n" +
                     "http://video.advertserve.com/examples/bigbuckbunny.mp4\n" +
                     "]]>\n" +
