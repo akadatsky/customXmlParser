@@ -1,10 +1,8 @@
 package com.loopme.customparser.xml;
 
 import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.IOException;
 import java.io.StringReader;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
@@ -15,23 +13,10 @@ import java.util.List;
 
 public class XmlParser {
 
-    public static <T> T parse(String xml, Class<T> classOfT) throws XmlParserException {
-        try {
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            XmlPullParser parser = factory.newPullParser();
-            parser.setInput(new StringReader(xml));
-            return parseRoot(parser, classOfT);
-        } catch (XmlPullParserException e) {
-            throw new XmlParserException("Can't init XmlPullParser", e);
-        } catch (Exception e) {
-            throw new XmlParserException("XML parsing failed", e);
-        }
-    }
-
-    private static <T> T parseRoot(XmlPullParser parser, Class<T> classOfT) throws Exception {
-        if (parser.getEventType() != XmlPullParser.START_DOCUMENT) {
-            throw new XmlParserException("START_DOCUMENT not found");
-        }
+    public static <T> T parse(String xml, Class<T> classOfT) throws Exception {
+        XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+        XmlPullParser parser = factory.newPullParser();
+        parser.setInput(new StringReader(xml));
         parser.next();
         return parseTag(parser, classOfT);
     }
@@ -100,10 +85,6 @@ public class XmlParser {
 
     @SuppressWarnings("unchecked")
     private static <T> void parseSubTag(XmlPullParser parser, T parent) throws Exception {
-        if (parser.getEventType() != XmlPullParser.START_TAG) {
-            throw new XmlParserException("START_TAG not found");
-        }
-
         String tagName = parser.getName();
         int tagDepth = parser.getDepth();
 
@@ -150,7 +131,7 @@ public class XmlParser {
         return null;
     }
 
-    private static void skipTag(XmlPullParser parser, String name, int depth) throws XmlPullParserException, IOException {
+    private static void skipTag(XmlPullParser parser, String name, int depth) throws Exception {
         while (true) {
             parser.next();
             if (parser.getEventType() == XmlPullParser.END_TAG && parser.getName().equalsIgnoreCase(name) && parser.getDepth() == depth) {
