@@ -39,15 +39,7 @@ public class XmlParser {
     private static <T> T parseTag(XmlPullParser parser, Class<T> classOfT) throws Exception {
         T tagInstance = classOfT.newInstance();
 
-        for (Field field : classOfT.getDeclaredFields()) {
-            Attribute attribute = getAnnotation(field, Attribute.class);
-            if (attribute == null) {
-                continue;
-            }
-            String value = parser.getAttributeValue(null, attribute.value());
-            field.setAccessible(true);
-            field.set(tagInstance, value);
-        }
+        parseAttributes(parser, classOfT, tagInstance);
         parser.next();
 
         while (parser.getEventType() == XmlPullParser.START_TAG
@@ -61,6 +53,18 @@ public class XmlParser {
         parser.next();
 
         return tagInstance;
+    }
+
+    private static <T> void parseAttributes(XmlPullParser parser, Class<T> classOfT, T tagInstance) throws IllegalAccessException {
+        for (Field field : classOfT.getDeclaredFields()) {
+            Attribute attribute = getAnnotation(field, Attribute.class);
+            if (attribute == null) {
+                continue;
+            }
+            String value = parser.getAttributeValue(null, attribute.value());
+            field.setAccessible(true);
+            field.set(tagInstance, value);
+        }
     }
 
     private static <T> void parseText(XmlPullParser parser, T parent) throws Exception {
