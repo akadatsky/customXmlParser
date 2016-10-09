@@ -33,15 +33,15 @@ public class XmlParser {
 
     private static <T> T parseTag(XmlPullParser parser, Class<T> classOfT) throws Exception {
         T tagInstance = classOfT.newInstance();
-        parseAttributes(parser, classOfT, tagInstance);
+        parseAttributes(parser, tagInstance);
         parser.next();
         parseElements(parser, tagInstance);
         parser.next();
         return tagInstance;
     }
 
-    private static <T> void parseAttributes(XmlPullParser parser, Class<T> classOfT, T tagInstance) throws IllegalAccessException {
-        for (Field field : classOfT.getDeclaredFields()) {
+    private static <T> void parseAttributes(XmlPullParser parser, T tagInstance) throws IllegalAccessException {
+        for (Field field : tagInstance.getClass().getDeclaredFields()) {
             Attribute attribute = getAnnotation(field, Attribute.class);
             if (attribute == null) {
                 continue;
