@@ -1,10 +1,10 @@
-package com.loopme.customparser.xml;
+package com.sample.customparser.xml;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Tag {
+public @interface Attribute {
 
     String value() default "";
 

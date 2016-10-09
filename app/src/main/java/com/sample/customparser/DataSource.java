@@ -1,4 +1,4 @@
-package com.loopme.customparser;
+package com.sample.customparser;
 
 public class DataSource {
 

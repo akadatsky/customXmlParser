@@ -1,6 +1,6 @@
-package com.loopme.customparser.vast.model;
+package com.sample.customparser.vast.model;
 
-import com.loopme.customparser.xml.Text;
+import com.sample.customparser.xml.Text;
 
 public class Duration {
 

@@ -1,7 +1,7 @@
-package com.loopme.customparser.vast.model;
+package com.sample.customparser.vast.model;
 
-import com.loopme.customparser.xml.Attribute;
-import com.loopme.customparser.xml.Tag;
+import com.sample.customparser.xml.Attribute;
+import com.sample.customparser.xml.Tag;
 
 public class Vast {
 

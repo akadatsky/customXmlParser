@@ -1,4 +1,4 @@
-package com.loopme.customparser.xml;
+package com.sample.customparser.xml;
 
 import android.text.TextUtils;
 

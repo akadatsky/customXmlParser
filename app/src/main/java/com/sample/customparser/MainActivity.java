@@ -1,13 +1,12 @@
-package com.loopme.customparser;
+package com.sample.customparser;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.loopme.customparser.vast.model.Vast;
-import com.loopme.customparser.xml.XmlParser;
+import com.sample.customparser.vast.model.Vast;
+import com.sample.customparser.xml.XmlParser;
 
 public class MainActivity extends AppCompatActivity {
 
