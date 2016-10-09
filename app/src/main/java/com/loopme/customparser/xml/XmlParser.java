@@ -13,6 +13,12 @@ import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Simple XML parser.
+ *
+ * <p><b>Note:</b> in current implementation attributes and tag names are case-insensitive.
+ * <p>For example &lt;Img/&gt;, &lt;IMG/&gt;, and &lt;img/&gt; are same element types.
+ */
 public class XmlParser {
 
     public static <T> T parse(String xml, Class<T> classOfT) throws Exception {
