@@ -17,7 +17,7 @@ import java.util.List;
  * Simple XML parser.
  *
  * <p><b>Note:</b> in current implementation tag names are case-insensitive.
- * For example &lt;Img/&gt;, &lt;IMG/&gt;, and &lt;img/&gt; are same tag.
+ * For example &lt;Img/&gt;, &lt;IMG/&gt;, and &lt;img/&gt; are the same tag.
  * <p>Attributes are case-sensitive.
  * For example &lt;PIC width="7in"/&gt; and &lt;PIC WIDTH="6in"/&gt; are separate attributes.
  */
