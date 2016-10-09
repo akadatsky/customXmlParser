@@ -17,12 +17,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnGoClick(View view) {
-        Vast vast = null;
         try {
-            vast = XmlParser.parse(DataSource.getVast(), Vast.class);
+            Vast vast = XmlParser.parse(DataSource.getVast(), Vast.class);
+            Toast.makeText(this, "Version: " + vast.getVersion(), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(this, "Parsing failed", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this, "Version: " + vast.getVersion(), Toast.LENGTH_SHORT).show();
     }
 }
