@@ -38,20 +38,10 @@ public class XmlParser {
 
     private static <T> T parseTag(XmlPullParser parser, Class<T> classOfT) throws Exception {
         T tagInstance = classOfT.newInstance();
-
         parseAttributes(parser, classOfT, tagInstance);
         parser.next();
-
-        while (parser.getEventType() == XmlPullParser.START_TAG
-                || parser.getEventType() == XmlPullParser.TEXT) {
-            if (parser.getEventType() == XmlPullParser.TEXT) {
-                parseText(parser, tagInstance);
-            } else {
-                parseSubTag(parser, tagInstance);
-            }
-        }
+        parseElements(parser, tagInstance);
         parser.next();
-
         return tagInstance;
     }
 
@@ -81,6 +71,17 @@ public class XmlParser {
                 field.setFloat(tagInstance, Float.parseFloat(value));
             } else if (Boolean.class.equals(fieldClass) || boolean.class.equals(fieldClass)) {
                 field.setBoolean(tagInstance, Boolean.parseBoolean(value));
+            }
+        }
+    }
+
+    private static <T> void parseElements(XmlPullParser parser, T tagInstance) throws Exception {
+        while (parser.getEventType() == XmlPullParser.START_TAG
+                || parser.getEventType() == XmlPullParser.TEXT) {
+            if (parser.getEventType() == XmlPullParser.TEXT) {
+                parseText(parser, tagInstance);
+            } else {
+                parseSubTag(parser, tagInstance);
             }
         }
     }
