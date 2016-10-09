@@ -22,7 +22,7 @@ public class XmlParser {
             parser.setInput(new StringReader(xml));
             return parseRoot(parser, classOfT);
         } catch (XmlPullParserException e) {
-            throw new XmlParserException("Can't init XmlPullParser");
+            throw new XmlParserException("Can't init XmlPullParser", e);
         } catch (Exception e) {
             throw new XmlParserException("XML parsing failed", e);
         }
