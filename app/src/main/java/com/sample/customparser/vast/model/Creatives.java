@@ -7,9 +7,9 @@ import java.util.List;
 public class Creatives {
 
     @Tag("Creative")
-    private List<Creative> creatives;
+    private List<Creative> creativeList;
 
-    public List<Creative> getCreatives() {
-        return creatives;
+    public List<Creative> getCreativeList() {
+        return creativeList;
     }
 }

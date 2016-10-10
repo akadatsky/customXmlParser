@@ -13,7 +13,7 @@ public class InLine {
     private Error error;
 
     @Tag("Impression")
-    private List<Impression> impressions;
+    private List<Impression> impressionList;
 
     @Tag
     private Creatives creatives;
@@ -30,7 +30,7 @@ public class InLine {
         return creatives;
     }
 
-    public List<Impression> getImpressions() {
-        return impressions;
+    public List<Impression> getImpressionList() {
+        return impressionList;
     }
 }

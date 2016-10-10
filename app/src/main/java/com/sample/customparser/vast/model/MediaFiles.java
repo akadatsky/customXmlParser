@@ -7,10 +7,9 @@ import java.util.List;
 public class MediaFiles {
 
     @Tag("MediaFile")
-    private List<MediaFile> mediaFiles;
+    private List<MediaFile> mediaFileList;
 
-    public List<MediaFile> getMediaFiles() {
-        return mediaFiles;
+    public List<MediaFile> getMediaFileList() {
+        return mediaFileList;
     }
-
 }

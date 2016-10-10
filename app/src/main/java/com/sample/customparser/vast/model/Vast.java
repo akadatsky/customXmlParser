@@ -15,4 +15,7 @@ public class Vast {
         return version;
     }
 
+    public Ad getAd() {
+        return ad;
+    }
 }
